@@ -1,7 +1,7 @@
 
 import Contact from "../Contact/Contact";
 
-const ContactList = ({ contact, handleDelete }) => {
+const ContactList = ({ contact, deleteContact }) => {
   return (
     <>
       <ul>
@@ -10,7 +10,7 @@ const ContactList = ({ contact, handleDelete }) => {
             <Contact
               key={index}
               contact={contact}
-              handleDelete={handleDelete}
+              deleteContact={deleteContact}
             />
           );
         })}
