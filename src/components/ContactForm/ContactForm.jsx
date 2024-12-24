@@ -11,20 +11,23 @@ const ContactForm = ({ addContact }) => {
     number: "",
   };
 
-  const FeedbackSchema = Yup.object().shape({
+  const FeedbackSchema = Yup.object({
     name: Yup.string()
-      .min(3, "Too Short!")
-      .max(50, "Too Long!")
-      .required("Required"),
+      .required('This field is required!')
+      .min(3, 'Name must be more than 3 characters!')
+      .max(50, 'Name must be less than 50 characters!'),
+      
+    
     number: Yup.string()
-      .min(3, "Too Short!")
-      .max(50, "Too Long!")
-      .required("Required"),
+      .required('This field is required!')
+      .min(3, 'Number must be more than 3 characters!')
+      .max(50, 'Number must be less than 50 characters!'),    
   });
 
-  const handleSubmit = (values) => {
-    values.id = nanoid();
+  const handleSubmit = (values,  { resetForm }) => {
     addContact(values);
+    values.id = nanoid();
+    resetForm();
   };
 
   return (

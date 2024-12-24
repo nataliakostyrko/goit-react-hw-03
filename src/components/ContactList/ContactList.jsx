@@ -5,10 +5,10 @@ const ContactList = ({ contact, deleteContact }) => {
   return (
     <>
       <ul>
-        {contact.map((contact, index) => {
+        {contact.map((contact) => {
           return (
             <Contact
-              key={index}
+              key={contact.id}
               contact={contact}
               deleteContact={deleteContact}
             />
